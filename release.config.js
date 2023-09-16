@@ -2,7 +2,6 @@ const changelogFile = 'docs/CHANGELOG.md';
 
 const config = {
   branches: ['main', { name: 'dev', prerelease: true }],
-  repositoryUrl: 'git@github.com:surendra-wal/todo-api.git',
   plugins: [
     [
       "@semantic-release/commit-analyzer",
