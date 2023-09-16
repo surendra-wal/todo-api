@@ -1,5 +1,3 @@
-const changelogFile = 'docs/CHANGELOG.md';
-
 const config = {
   branches: ['main', { name: 'dev', prerelease: true }],
   plugins: [
@@ -41,18 +39,5 @@ const config = {
     ],
   ],
 };
-
-if (process.env.GIT_BRANCH === "main") {
-  // For '@semantic-release/git'
-  // makes a commit to the `main` branch containing updates to package.json and the changelog file
-  config.plugins.push([
-    "@semantic-release/git",
-    {
-      assets: ["package.json", changelogFile],
-      message:
-        "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
-    },
-  ]);
-}
 
 module.exports = config;
