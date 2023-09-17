@@ -34,6 +34,12 @@ const config = {
       },
     ],
     [
+      '@semantic-release/git',
+      {
+        assets: ['docs/CHANGELOG.md'],
+      },
+    ],
+    [
       'semantic-release-slack-bot',
       {
         notifyOnSuccess: true,
