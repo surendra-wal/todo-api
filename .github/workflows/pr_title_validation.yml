@@ -2,6 +2,9 @@ name: Check PR title
 
 on:
   pull_request_target:
+    branches:
+      - '!uat'
+      - '!main'
     types:
       - opened
       - edited
