@@ -2,7 +2,7 @@ name: Backmerge to uat branch or dev
 on:
   workflow_call:
     secrets:
-      GITHUB_TOKEN:
+      TODO_GITHUB_TOKEN:
         required: true
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
     with:
       BRANCH_TO_UPDATE: uat
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TODO_GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
 
   back-merge-to-dev:
     uses: ./.github/workflows/backmerge_to_lower_branch.yml@main
@@ -20,4 +20,4 @@ jobs:
     with:
       BRANCH_TO_UPDATE: dev
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TODO_GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
