@@ -27,11 +27,11 @@ jobs:
     with:
       BRANCH_TO_UPDATE: dev
     secrets:
-      PAT: ${{ secrets.TODO_GITHUB_TOKEN }}
+      TODO_GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
   backmerge-main:
     needs: release
     if: endsWith(github.ref, '/main')
     uses: ./.github/workflows/automerge.yml
     name: Backmerge main
     secrets:
-      PAT: ${{ secrets.TODO_GITHUB_TOKEN }}
+      TODO_GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
