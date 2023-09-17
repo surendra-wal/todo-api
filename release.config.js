@@ -37,6 +37,16 @@ const config = {
         releasedLabels: false,
       },
     ],
+    [
+        "semantic-release-slack-bot",
+        {
+          "notifyOnSuccess": true,
+          "notifyOnFail": true,
+          "onSuccessTemplate": {
+            "text": "A new version of $package_name with version $npm_package_version has been released"
+          }
+        }
+      ]
   ],
 };
 
