@@ -9,7 +9,6 @@ on:
 
 jobs:
   lint:
-    if: (!contains(fromJSON('["uat", "main"]'), github.head_ref))
     runs-on: ubuntu-latest
     permissions:
       statuses: write
