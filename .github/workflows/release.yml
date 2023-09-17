@@ -31,7 +31,7 @@ jobs:
   backmerge-main:
     needs: release
     if: endsWith(github.ref, '/main')
-    uses: ./.github/workflows/automerge.yml
+    uses: ./.github/workflows/backmerge_to_uat_branch_or_dev.yml
     name: Backmerge main
     secrets:
       PAT: ${{ secrets.TODO_GITHUB_TOKEN }}
