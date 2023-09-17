@@ -37,6 +37,13 @@ const config = {
         releasedLabels: false,
       },
     ],
+    [
+        "semantic-release-slack-bot",
+        {
+          "notifyOnSuccess": true,
+          "notifyOnFail": true,
+        }
+      ]
   ],
 };
 
