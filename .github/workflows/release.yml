@@ -22,7 +22,7 @@ jobs:
   backmerge-uat:
     needs: release
     if: endsWith(github.ref, '/uat')
-    uses: ./.github/workflows/backmerge_to_lower_branch.yml@main
+    uses: ./.github/workflows/backmerge_to_lower_branch.yml
     name: Backmerge uat
     with:
       BRANCH_TO_UPDATE: dev
@@ -31,7 +31,7 @@ jobs:
   backmerge-main:
     needs: release
     if: endsWith(github.ref, '/main')
-    uses: ./.github/workflows/automerge.yml@main
+    uses: ./.github/workflows/automerge.yml
     name: Backmerge main
     secrets:
       PAT: ${{ secrets.TODO_GITHUB_TOKEN }}
