@@ -1,0 +1,35 @@
+name: Backmerge to lower branch
+on:
+  workflow_call:
+    inputs:
+      BRANCH_TO_UPDATE:
+        required: true
+        type: string
+    secrets:
+      TODO_GITHUB_TOKEN:
+        required: true
+
+jobs:
+  back-merge:
+    timeout-minutes: 1
+    name: Backmerge
+    runs-on: ubuntu-latest
+    env:
+      CURRENT_BRANCH: ${{ github.ref_name }}
+      BRANCH_TO_UPDATE: ${{ inputs.BRANCH_TO_UPDATE }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.TODO_GITHUB_TOKEN }}
+      - name: Set Git config
+        run: |
+          git config --local user.email "surendra@westagilelabs.com"
+          git config --local user.name "Auto-merge Bot"
+      - name: 'Merge ${{ env.CURRENT_BRANCH }} branch back to ${{ env.BRANCH_TO_UPDATE }}'
+        run: |
+          git pull
+          git checkout "$BRANCH_TO_UPDATE"
+          git pull
+          git merge --no-ff "$CURRENT_BRANCH" -m "Auto-merge back to $BRANCH_TO_UPDATE via github actions."
+          git push origin "$BRANCH_TO_UPDATE"
