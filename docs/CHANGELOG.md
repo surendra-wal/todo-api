@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/surendra-wal/todo-api/compare/v1.0.0...v1.0.1) (2023-09-23)
+
+
+### Bug Fixes
+
+* **action:** exclude pr title validation for uat and main ([60d11ac](https://github.com/surendra-wal/todo-api/commit/60d11ac0169ae8065414afbca78ff96ad1488ea3))
+* **action:** exclude pr title validation for uat and main ([c209c89](https://github.com/surendra-wal/todo-api/commit/c209c8973964d77c8be57d670df0158ddd1a014e))
+
 ## [1.0.1-release.1](https://github.com/surendra-wal/todo-api/compare/v1.0.0...v1.0.1-release.1) (2023-09-23)
 
 
