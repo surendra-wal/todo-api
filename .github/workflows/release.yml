@@ -2,7 +2,7 @@ name: Release
 on:
   push:
     branches:
-      - uat
+      - release
       - main
 jobs:
   release:
@@ -19,11 +19,11 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-  backmerge-uat:
+  backmerge-release:
     needs: release
-    if: endsWith(github.ref, '/uat')
+    if: endsWith(github.ref, '/release')
     uses: ./.github/workflows/backmerge_to_lower_branch.yml
-    name: Backmerge uat
+    name: Backmerge release
     with:
       BRANCH_TO_UPDATE: dev
     secrets:
@@ -31,7 +31,7 @@ jobs:
   backmerge-main:
     needs: release
     if: endsWith(github.ref, '/main')
-    uses: ./.github/workflows/backmerge_to_uat_branch_or_dev.yml
+    uses: ./.github/workflows/backmerge_to_release_branch_or_dev.yml
     name: Backmerge main
     secrets:
       TODO_GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
