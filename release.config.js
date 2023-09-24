@@ -37,7 +37,7 @@ const config = {
     [
       '@semantic-release/git', // Use the git plugin to commit and push changes to Git.
       {
-        assets: ['docs/CHANGELOG.md'], // Specify assets to be included in the Git release commit.
+        assets: ['docs/CHANGELOG.md', 'package.json'], // Specify assets to be included in the Git release commit.
       },
     ],
     [
