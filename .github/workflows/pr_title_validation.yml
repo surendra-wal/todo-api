@@ -9,7 +9,7 @@ on:
 
 jobs:
   lint:
-    if: (!contains(fromJSON('["release", "main"]'), github.head_ref))
+    if: (!(contains(fromJSON('["release", "main"]'), github.head_ref)))
     runs-on: ubuntu-latest
     permissions:
       statuses: write
