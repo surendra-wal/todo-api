@@ -9,7 +9,10 @@ on:
 
 jobs:
   lint:
-    if: (!(contains(fromJSON('["release", "main"]'), github.head_ref)))
+    - name: Show default environment variables
+      run: |
+          echo "The job_id is: $GITHUB_JOB"
+    if: github.event.head_commit.message != 'Release' # Exclude PR title validation for Releases. Ensure that all hot and warm fixes adhere to the naming convention.
     runs-on: ubuntu-latest
     permissions:
       statuses: write
