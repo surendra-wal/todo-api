@@ -9,12 +9,12 @@ on:
 
 jobs:
   lint:
-    - name: PR title validation
     if: github.head_commit.message != 'Release'
     runs-on: ubuntu-latest
     permissions:
       statuses: write
     steps:
+      - name: PR title validation
       - uses: aslafy-z/conventional-pr-title-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
