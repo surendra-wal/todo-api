@@ -1,11 +1,14 @@
 on:
-  push:
   pull_request:
-   types: [opened, synchronize]
+    types: [opened, synchronize]
 
 jobs:
-  print_title_of_pr:
-    runs-on: ubuntu-20.04
+  printJob:
+    name: Print event
+    runs-on: ubuntu-latest
     steps:
-    - name : Print Title of PR
-      run: echo The Title of your PR is ${{ toJson(github) }}
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
