@@ -10,8 +10,6 @@ on:
 jobs:
   lint:
     - name: PR title validation
-      run: |
-          echo "The job_id is: $GITHUB_JOB"
     if: github.head_commit.message != 'Release'
     runs-on: ubuntu-latest
     permissions:
