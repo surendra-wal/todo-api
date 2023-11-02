@@ -1,20 +1,10 @@
-name: Check PR title
-
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
+  push:
+  pull_request:
+   types: [opened, synchronize]
 
-jobs:
-  lint:
-    if: github.event.pull_request.title != 'Release'
-    runs-on: ubuntu-latest
-    permissions:
-      statuses: write
+  print_title_of_pr:
+    runs-on: ubuntu-20.04
     steps:
-      - name: PR title validation
-        uses: aslafy-z/conventional-pr-title-action@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
+    - name : Print Title of PR
+      run: echo The Title of your PR is ${{ github.event.pull_request.title }}
