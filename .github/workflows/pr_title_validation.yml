@@ -1,6 +1,6 @@
 on:
   pull_request:
-    types: [opened, closed, reopened]
+    types: [opened, synchronize]
 
 jobs:
   printJob:
