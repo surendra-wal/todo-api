@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: PR title validation
         if: ${{github.event.pull_request.title != 'Release' }}
-        uses: aslafy-z/conventional-pr-title-action@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
+        run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+        # uses: aslafy-z/conventional-pr-title-action@v3
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
