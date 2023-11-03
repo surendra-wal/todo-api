@@ -1,20 +1,14 @@
-name: Check PR title
-
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
+  pull_request:
+    types: [opened, closed, reopened]
 
 jobs:
-  lint:
-    if: github.event.pull_request.title != 'Release'
+  printJob:
+    name: Print event
     runs-on: ubuntu-latest
-    permissions:
-      statuses: write
     steps:
-      - name: PR title validation
-        uses: aslafy-z/conventional-pr-title-action@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ github.event.pull_request.title }}
+      run: |
+        echo "$GITHUB_CONTEXT"
