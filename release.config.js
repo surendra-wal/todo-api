@@ -47,6 +47,12 @@ const config = {
         notifyOnFail: true, // Notify on failed releases.
       },
     ],
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false,
+      }
+    ],
   ],
 };
 
