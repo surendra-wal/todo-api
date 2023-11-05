@@ -28,6 +28,12 @@ const config = {
       },
     ],
     [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false,
+      }
+    ],
+    [
       '@semantic-release/github', // Use the GitHub plugin to interact with GitHub repositories.
       {
         successComment: false, // Disable posting a success comment on GitHub.
@@ -46,12 +52,6 @@ const config = {
         notifyOnSuccess: true, // Notify on successful releases.
         notifyOnFail: true, // Notify on failed releases.
       },
-    ],
-    [
-      "@semantic-release/npm",
-      {
-        "npmPublish": false,
-      }
     ],
   ],
 };
