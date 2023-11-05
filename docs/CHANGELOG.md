@@ -1,3 +1,10 @@
+## [1.3.0-release.1](https://github.com/surendra-wal/todo-api/compare/v1.2.0...v1.3.0-release.1) (2023-11-05)
+
+
+### Features
+
+* **todo:** add delete api ([#47](https://github.com/surendra-wal/todo-api/issues/47)) ([71373f1](https://github.com/surendra-wal/todo-api/commit/71373f19e5bbe213170c18988f04bde6f9cc1e3b))
+
 ## [1.2.0](https://github.com/surendra-wal/todo-api/compare/v1.1.0...v1.2.0) (2023-11-05)
 
 
