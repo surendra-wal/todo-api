@@ -28,16 +28,16 @@ const config = {
       },
     ],
     [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false,
+      }
+    ],
+    [
       '@semantic-release/github', // Use the GitHub plugin to interact with GitHub repositories.
       {
         successComment: false, // Disable posting a success comment on GitHub.
         releasedLabels: false, // Disable updating released labels on GitHub.
-      },
-    ],
-    [
-      '@semantic-release/git', // Use the git plugin to commit and push changes to Git.
-      {
-        assets: ['docs/CHANGELOG.md', 'package.json'], // Specify assets to be included in the Git release commit.
       },
     ],
     [
@@ -47,13 +47,16 @@ const config = {
         notifyOnFail: true, // Notify on failed releases.
       },
     ],
-    [
-      "@semantic-release/npm",
-      {
-        "npmPublish": false,
-      }
-    ],
   ],
 };
+
+if (process.env.CURRENT_BRANCH === "main") {
+  config.plugins.push([
+    '@semantic-release/git', // Use the git plugin to commit and push changes to Git.
+      {
+        assets: ['docs/CHANGELOG.md', 'package.json'], // Specify assets to be included in the Git release commit.
+      },
+  ]);
+}
 
 module.exports = config;
