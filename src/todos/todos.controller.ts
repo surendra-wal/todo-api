@@ -21,8 +21,8 @@ export class TodosController {
   updateTodoStatus(@Param('id') id: number) {
     return this.todosService.update(id);
   }
-  // @Delete('/:id')
-  // deleteTodo(@Param('id') id: number) {
-  //   return this.todosService.deleteOne(id);
-  // }
+  @Delete('/:id')
+  deleteTodo(@Param('id') id: number) {
+    return this.todosService.deleteOne(id);
+  }
 }
