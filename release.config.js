@@ -41,12 +41,6 @@ const config = {
       },
     ],
     [
-      '@semantic-release/git', // Use the git plugin to commit and push changes to Git.
-      {
-        assets: ['docs/CHANGELOG.md', 'package.json'], // Specify assets to be included in the Git release commit.
-      },
-    ],
-    [
       'semantic-release-slack-bot', // Use the semantic-release-slack-bot plugin for Slack notifications.
       {
         notifyOnSuccess: true, // Notify on successful releases.
@@ -55,5 +49,14 @@ const config = {
     ],
   ],
 };
+
+if (process.env.CURRENT_BRANCH === "main") {
+  config.plugins.push([
+    '@semantic-release/git', // Use the git plugin to commit and push changes to Git.
+      {
+        assets: ['docs/CHANGELOG.md', 'package.json'], // Specify assets to be included in the Git release commit.
+      },
+  ]);
+}
 
 module.exports = config;
