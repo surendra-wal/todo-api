@@ -6,15 +6,6 @@ on:
       - main
       - dev
 jobs:
-  printJob:
-    name: Print event
-    runs-on: ubuntu-latest
-    steps:
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: |
-        echo "$GITHUB_CONTEXT"
   release:
     name: release
     runs-on: ubuntu-latest
@@ -29,7 +20,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-      CURRENT_BRANCH: ${{ github.event.pull_request.head.ref }}
+      CURRENT_BRANCH: ${{ github.event.ref_name }}
   backmerge-release:
     needs: release
     if: endsWith(github.ref, '/release')
