@@ -5,6 +5,7 @@ on:
       - release
       - main
       - dev
+      - add-delete-api
 jobs:
   printJob:
     name: Print event
