@@ -4,18 +4,7 @@ on:
     branches:
       - release
       - main
-      - dev
-      - add-delete-api
 jobs:
-  printJob:
-    name: Print event
-    runs-on: ubuntu-latest
-    steps:
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: |
-        echo "$GITHUB_CONTEXT"
   release:
     name: release
     runs-on: ubuntu-latest
