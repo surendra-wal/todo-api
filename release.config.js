@@ -49,6 +49,7 @@ const config = {
     ],
   ],
 };
+console.log('branch', process.env.CURRENT_BRANCH);
 
 if (process.env.CURRENT_BRANCH === "main") {
   config.plugins.push([
