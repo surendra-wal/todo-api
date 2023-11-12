@@ -30,7 +30,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.TODO_GITHUB_TOKEN }}
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-      CURRENT_BRANCH: ${{ github.event.ref_name  }}
+      CURRENT_BRANCH: ${{ github.ref_name  }}
   backmerge-release:
     needs: release
     if: endsWith(github.ref, '/release')
